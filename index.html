@@ -117,6 +117,64 @@
     </style>
 </head>
 <body>
-<h1>Rats will rule the world!</h1>
+    <div class="fade"></div>
+    <div class="background"></div>
+
+    <div class="content">
+        <p>Welcome to</p>
+        <h1 class="sparkle-hover">RatCoin</h1>
+        <a href="https://pump.fun/coin/DjQEGyN1naEQ68PsF3Ap6MKhUsgYYapQeaaLwE1mpump">
+            <button class="join-btn sparkle-hover" type="button">Join RatCoin Movement</button>
+        </a>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="glitterSound" src="glitter_sound.mp3"></audio>
+    <audio id="twinkleSound" src="twinkle.mp3"></audio>
+
+    <script>
+        // Play glitter sound on page load
+        window.onload = function() {
+            const glitterSound = document.getElementById('glitterSound');
+            glitterSound.play().catch((err) => console.error("Page load sound error:", err));
+        };
+
+        // Play twinkle sound on hover
+        function playTwinkleSound() {
+            const twinkleSound = document.getElementById('twinkleSound');
+            twinkleSound.currentTime = 0; // Reset to start
+            twinkleSound.play().catch((err) => console.error("Hover sound error:", err));
+        }
+
+        // Add sparkle effect and sound on hover
+        function createSparkle(x, y, parent) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            parent.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        document.querySelectorAll('.sparkle-hover').forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                createSparkle(x, y, element);
+            });
+
+            element.addEventListener('mouseenter', playTwinkleSound);
+        });
+
+        // Debug: Check if button is clicked
+        document.querySelector('.join-btn').addEventListener('click', () => {
+            console.log('Button clicked!');
+        });
+    </script>
+    ////
 </body>
 </html>
