@@ -102,16 +102,16 @@
             transform: scale(1.1);
         }
 
-        /* Message Box Styling (Half the Size of the Button) */
+        /* Message Box Styling */
         .message-box {
-            font-size: 0.6rem; /* Make the text half the size of the button's text */
+            font-size: 1.5rem;
             color: white;
-            padding: 8px 15px; /* Adjust the padding to make it smaller */
+            padding: 15px 30px;
             background-color: rgba(255, 255, 255, 0.4);
             border: 1.5px solid white;
             border-radius: 5px;
             position: absolute;
-            top: 60%; /* Position it just below the button */
+            top: 30%; /* Position it just below the button */
             left: 50%;
             transform: translateX(-50%);
             margin-top: 10px;
@@ -233,15 +233,20 @@
             element.addEventListener('mouseenter', playTwinkleSound);
         });
 
-        // Create RatCoins at intervals
+        // Debug: Check if button is clicked
+        document.querySelector('.join-btn').addEventListener('click', () => {
+            console.log('Button clicked!');
+        });
+
+        // Function to create a falling RatCoin
         function createFallingRatCoin() {
             const ratCoin = document.createElement("img");
             ratCoin.src = "ratcoin-webmini.png"; // Ensure the image path is correct
             ratCoin.classList.add("falling-ratcoin");
 
             // Set a random horizontal position and animation duration
-            ratCoin.style.left = `${Math.random() * 100}vw`; // Random left position (full viewport width)
-            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`; // Randomize animation duration
+            ratCoin.style.left = `${Math.random() * 100}vw`;
+            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`;
 
             // Add the element to the body
             document.body.appendChild(ratCoin);
@@ -253,7 +258,7 @@
         }
 
         // Create RatCoins at intervals
-        setInterval(createFallingRatCoin, 300); // Every 300ms a new coin falls
+        setInterval(createFallingRatCoin, 300); 
     </script>
 </body>
 </html>
