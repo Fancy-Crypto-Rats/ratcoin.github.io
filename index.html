@@ -102,16 +102,16 @@
             transform: scale(1.1);
         }
 
-       /* Message Box Styling (Half the Size of the Button) */
+        /* Message Box Styling (Half the Size of the Button) */
         .message-box {
             font-size: 0.6rem; /* Make the text half the size of the button's text */
             color: white;
-            padding: 4px 105px; /* Adjust the padding to make it smaller */
+            padding: 8px 15px; /* Adjust the padding to make it smaller */
             background-color: rgba(255, 255, 255, 0.4);
             border: 1.5px solid white;
-            border-radius: 2px;
+            border-radius: 5px;
             position: absolute;
-            top: 70%; /* Position it just below the button */
+            top: 60%; /* Position it just below the button */
             left: 50%;
             transform: translateX(-50%);
             margin-top: 10px;
@@ -198,8 +198,7 @@
             const messageContainer = document.getElementById('message-container');
             const message = document.createElement('div');
             message.classList.add('message-box');
-            message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔
-This is an another example of man trying to keep us down and why we MUST persist. ";
+            message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔";
             messageContainer.appendChild(message);
         }, 2000);
 
@@ -234,20 +233,15 @@ This is an another example of man trying to keep us down and why we MUST persist
             element.addEventListener('mouseenter', playTwinkleSound);
         });
 
-        // Debug: Check if button is clicked
-        document.querySelector('.join-btn').addEventListener('click', () => {
-            console.log('Button clicked!');
-        });
-
-        // Function to create a falling RatCoin
+        // Create RatCoins at intervals
         function createFallingRatCoin() {
             const ratCoin = document.createElement("img");
             ratCoin.src = "ratcoin-webmini.png"; // Ensure the image path is correct
             ratCoin.classList.add("falling-ratcoin");
 
             // Set a random horizontal position and animation duration
-            ratCoin.style.left = `${Math.random() * 100}vw`;
-            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`;
+            ratCoin.style.left = `${Math.random() * 100}vw`; // Random left position (full viewport width)
+            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`; // Randomize animation duration
 
             // Add the element to the body
             document.body.appendChild(ratCoin);
@@ -259,7 +253,7 @@ This is an another example of man trying to keep us down and why we MUST persist
         }
 
         // Create RatCoins at intervals
-        setInterval(createFallingRatCoin, 300); 
+        setInterval(createFallingRatCoin, 300); // Every 300ms a new coin falls
     </script>
 </body>
 </html>
