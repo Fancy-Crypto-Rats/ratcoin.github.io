@@ -102,11 +102,20 @@
             transform: scale(1.1);
         }
 
-        /* Message Styling */
-        .message {
+        /* Message Box Styling */
+        .message-box {
             font-size: 1.5rem;
             color: white;
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1.5px solid white;
+            border-radius: 5px;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
             margin-top: 10px;
+            text-align: center;
             text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
         }
 
@@ -170,7 +179,7 @@
     <!-- Join Button -->
     <button class="join-btn" type="button">Join RatCoin Movement</button>
     
-    <!-- Message Area (Initially Hidden) -->
+    <!-- Message Box (Initially Hidden) -->
     <div id="message-container"></div>
     
     <!-- Audio Elements -->
@@ -188,7 +197,7 @@
         setTimeout(function() {
             const messageContainer = document.getElementById('message-container');
             const message = document.createElement('div');
-            message.classList.add('message');
+            message.classList.add('message-box');
             message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔";
             messageContainer.appendChild(message);
         }, 2000);
