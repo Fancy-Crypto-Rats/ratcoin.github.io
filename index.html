@@ -53,29 +53,25 @@
             transform: translate(-50%, -50%);
             z-index: 10;
         }
+        
         .content h1 {
             font-family: 'Jacquard 24', sans-serif;
-    font-size: 4rem; /* Adjust size as needed */
-    margin: 0;
-    position: absolute;
-    top: 30%; /* Adjust the vertical position */
-    left: 50%;
-    transform: translateX(-50%);
-    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
+            font-size: 6rem;
+            margin: 0;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
         }
 
 
         
         .content p {
             font-size: 1.5rem; /* Adjust size as needed */
-    margin: 0;
-    position: absolute;
-    top: 10%; /* Position under the h1 */
-    left: 50%;
-    transform: translateX(-50%);
-    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+     font-size: 1.5rem;
+            margin: 0;
+            padding-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
         }
+        
 
         /* Header Hover Effect */
         .content h1:hover {
@@ -155,15 +151,14 @@
     <div class="fade"></div>
     <div class="background"></div>
 
+   <!-- Content Area -->
     <div class="content">
         <p>Welcome to</p>
-        <h1 class="sparkle-hover">RatCoin</h1>
-        <a href="https://pump.fun/coin/DjQEGyN1naEQ68PsF3Ap6MKhUsgYYapQeaaLwE1mpump">
-            
-        </a>
+        <h1>RatCoin</h1>
     </div>
-<button class="join-btn sparkle-hover" type="button">Join RatCoin Movement</button>
 
+    <!-- Join Button Separate -->
+    <button class="join-btn" type="button">Join RatCoin Movement</button>
     
     <!-- Audio Elements -->
     <audio id="glitterSound" src="glitter_sound.mp3"></audio>
