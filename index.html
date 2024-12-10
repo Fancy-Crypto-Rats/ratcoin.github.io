@@ -82,6 +82,7 @@
 
         /* Button Styling */
         .join-btn {
+            display: inline-block;
             padding: 10px 20px;
             font-size: 1.2rem;
             font-weight: bold; /* Make the font bold */
@@ -90,12 +91,14 @@
             border: 1.5px solid white; /* Added white stroke */
             cursor: pointer;
             border-radius: 5px;
-            margin-bottom; 10px;
+            margin-bottom: 10px;
             position: absolute;
             bottom: 15%; /* Position at the lower part of the page */
             left: 50%;
             transform: translateX(-50%);
             text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
             transition: background-color 0.3s ease, transform 0.3s ease;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Slight black drop shadow */
         }
@@ -109,9 +112,9 @@
         .message-box {
             font-size: .5rem;
             color: white;
-           padding: 5px;
+            padding: 5px;
             background-color: rgba(255, 255, 255, 0.1);
-         border: .5px solid white; /* Added white stroke */ 
+            border: .5px solid white; /* Added white stroke */ 
             border-radius: 1px;
             position: absolute;
             bottom: 3%; /* Position it just below the button */
@@ -179,7 +182,8 @@
         <h1>RatCoin</h1>
     </div>
 
-<a href="tps://pump.fun/coin/DjQEGyN1naEQ68PsF3Ap6MKhUsgYYapQeaaLwE1mpump" class="join-btn">Join</a>   
+    <!-- Join Button -->
+    <a href="https://pump.fun/coin/DjQEGyN1naEQ68PsF3Ap6MKhUsgYYapQeaaLwE1mpump" class="join-btn">Join</a>
     
     <!-- Message Box (Initially Hidden) -->
     <div id="message-container"></div>
@@ -203,64 +207,6 @@
             message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔 This is another example of the man trying to hold us back and why we MUST persist";
             messageContainer.appendChild(message);
         }, 2000);
-
-        // Play twinkle sound on hover
-        function playTwinkleSound() {
-            const twinkleSound = document.getElementById('twinkleSound');
-            twinkleSound.currentTime = 0; // Reset to start
-            twinkleSound.play().catch((err) => console.error("Hover sound error:", err));
-        }
-
-        // Add sparkle effect and sound on hover
-        function createSparkle(x, y, parent) {
-            const sparkle = document.createElement('div');
-            sparkle.classList.add('sparkle');
-            sparkle.style.left = `${x}px`;
-            sparkle.style.top = `${y}px`;
-            parent.appendChild(sparkle);
-
-            setTimeout(() => {
-                sparkle.remove();
-            }, 1000);
-        }
-
-        document.querySelectorAll('.sparkle-hover').forEach(element => {
-            element.addEventListener('mousemove', (e) => {
-                const rect = element.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                createSparkle(x, y, element);
-            });
-
-            element.addEventListener('mouseenter', playTwinkleSound);
-        });
-
-        // Debug: Check if button is clicked
-        document.querySelector('.join-btn').addEventListener('click', () => {
-            console.log('Button clicked!');
-        });
-
-        // Function to create a falling RatCoin
-        function createFallingRatCoin() {
-            const ratCoin = document.createElement("img");
-            ratCoin.src = "ratcoin-webmini.png"; // Ensure the image path is correct
-            ratCoin.classList.add("falling-ratcoin");
-
-            // Set a random horizontal position and animation duration
-            ratCoin.style.left = `${Math.random() * 100}vw`;
-            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`;
-
-            // Add the element to the body
-            document.body.appendChild(ratCoin);
-
-            // Remove the element after the animation
-            ratCoin.addEventListener("animationend", () => {
-                ratCoin.remove();
-            });
-        }
-
-        // Create RatCoins at intervals
-        setInterval(createFallingRatCoin, 300); 
     </script>
 </body>
 </html>
