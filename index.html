@@ -59,19 +59,18 @@
         }
         
         .content h1 {
-            font-family:"UnifrakturMaguntia", cursive;
+            font-family: "UnifrakturMaguntia", cursive;
             font-size: 5.5rem;
             margin: 0;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6); /* Slight black drop shadow */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 6px 6px 6px rgba(0, 0, 0, 0.6);
             transition: transform 0.3s ease, text-shadow 0.3s ease;
         }
 
         .content p {
-            font-size: 1.5rem; /* Adjust size as needed */
+            font-size: 1.5rem;
             margin: 0;
             padding-bottom: 2px;
-            text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8); /* Slight black drop shadow */
+            text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
         }
 
         /* Header Hover Effect */
@@ -85,22 +84,22 @@
             display: inline-block;
             padding: 10px 20px;
             font-size: 1.2rem;
-            font-weight: bold; /* Make the font bold */
+            font-weight: bold;
             background-color: rgba(255, 255, 255, 0.4);
             color: rgb(255, 255, 255);
-            border: 1.5px solid white; /* Added white stroke */
+            border: 1.5px solid white;
             cursor: pointer;
             border-radius: 5px;
             margin-bottom: 10px;
             position: absolute;
-            bottom: 15%; /* Position at the lower part of the page */
+            bottom: 15%;
             left: 50%;
             transform: translateX(-50%);
             text-transform: uppercase;
             text-decoration: none;
             text-align: center;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Slight black drop shadow */
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
         }
 
         .join-btn:hover {
@@ -114,10 +113,10 @@
             color: white;
             padding: 5px;
             background-color: rgba(255, 255, 255, 0.1);
-            border: .5px solid white; /* Added white stroke */ 
+            border: .5px solid white; 
             border-radius: 1px;
             position: absolute;
-            bottom: 3%; /* Position it just below the button */
+            bottom: 3%;
             left: 50%;
             transform: translateX(-50%);
             margin-top: 10px;
@@ -151,49 +150,10 @@
                 transform: scale(2);
             }
         }
-        function createSparkle(x, y) {
-            // Create sparkle element
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
 
-            // Set sparkle position
-            sparkle.style.left = `${x}px`;
-            sparkle.style.top = `${y}px`;
-
-            // Append sparkle to the body
-            document.body.appendChild(sparkle);
-
-            // Remove sparkle after animation ends
-            sparkle.addEventListener('animationend', () => {
-                sparkle.remove();
-            });
-        }
-
-        // Add sparkles randomly on the screen
-        setInterval(() => {
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            createSparkle(x, y);
-        }, 200);
-
-        @keyframes sparkle-animation {
-            0% {
-                opacity: 1;
-                transform: scale(0.5);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.5);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(2);
-            }
-        }
-
-        falling-ratcoin {
+        .falling-ratcoin {
             position: fixed;
-            width: 30px; /* Adjust size of the image */
+            width: 30px;
             height: 30px;
             pointer-events: none;
             animation: fall linear infinite;
@@ -229,7 +189,6 @@
     
     <!-- Audio Elements -->
     <audio id="glitterSound" src="glitter_sound.mp3"></audio>
-    <audio id="twinkleSound" src="twinkle.mp3"></audio>
 
     <script>
         // Play glitter sound on page load
@@ -246,30 +205,41 @@
             message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔 This is another example of the man trying to hold us back and why we MUST persist";
             messageContainer.appendChild(message);
         }, 2000);
-// Function to create a falling RatCoin
+
+        // Function to create sparkles
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            document.body.appendChild(sparkle);
+            sparkle.addEventListener('animationend', () => {
+                sparkle.remove();
+            });
+        }
+
+        // Add sparkles randomly on the screen
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createSparkle(x, y);
+        }, 200);
+
+        // Function to create falling RatCoins
         function createFallingRatCoin() {
             const ratCoin = document.createElement("img");
-            ratCoin.src = "ratcoin-webmini.png"; // Ensure the image path is correct
+            ratCoin.src = "ratcoin-webmini.png"; 
             ratCoin.classList.add("falling-ratcoin");
-
-            // Set a random horizontal position and animation duration
             ratCoin.style.left = `${Math.random() * 100}vw`;
             ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`;
-
-            // Add the element to the body
             document.body.appendChild(ratCoin);
-
-            // Remove the element after the animation
             ratCoin.addEventListener("animationend", () => {
                 ratCoin.remove();
             });
         }
 
         // Create RatCoins at intervals
-        setInterval(createFallingRatCoin, 300); // Adjust frequency of new RatCoins
-    </script>
-
-        
+        setInterval(createFallingRatCoin, 300);
     </script>
 </body>
 </html>
