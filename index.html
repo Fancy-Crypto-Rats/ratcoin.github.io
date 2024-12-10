@@ -104,19 +104,19 @@
 
         /* Message Box Styling */
         .message-box {
-            font-size: .5rem;
+            font-size: 1rem;
             color: white;
-            padding: 15px 30px;
-            background-color: rgba(255, 255, 255, 0.4);
+            padding: 10px 10px;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1.5px solid white;
-            border-radius: 5px;
+            border-radius: 3px;
             position: absolute;
-            top: 70%; /* Position it just below the button */
+            top: 80%; /* Position it just below the button */
             left: 50%;
             transform: translateX(-50%);
             margin-top: 10px;
             text-align: center;
-            text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.8);
+            text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.4);
         }
 
         /* Sparkles */
@@ -198,7 +198,7 @@
             const messageContainer = document.getElementById('message-container');
             const message = document.createElement('div');
             message.classList.add('message-box');
-            message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔";
+            message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔 This is another example of the man trying to hold us back and why we MUST persist";
             messageContainer.appendChild(message);
         }, 2000);
 
