@@ -125,7 +125,7 @@
             text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.4);
         }
 
-        /* Sparkles */
+        /* Sparkle */
         .sparkle {
             position: absolute;
             width: 8px;
@@ -134,7 +134,7 @@
             border-radius: 50%;
             opacity: 0;
             pointer-events: none;
-            animation: sparkle-animation 1s linear forwards;
+            animation: sparkle-animation 1.5s linear forwards;
         }
 
         @keyframes sparkle-animation {
@@ -151,8 +151,47 @@
                 transform: scale(2);
             }
         }
+        function createSparkle(x, y) {
+            // Create sparkle element
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
 
-        .falling-ratcoin {
+            // Set sparkle position
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+
+            // Append sparkle to the body
+            document.body.appendChild(sparkle);
+
+            // Remove sparkle after animation ends
+            sparkle.addEventListener('animationend', () => {
+                sparkle.remove();
+            });
+        }
+
+        // Add sparkles randomly on the screen
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createSparkle(x, y);
+        }, 200);
+
+        @keyframes sparkle-animation {
+            0% {
+                opacity: 1;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+
+        falling-ratcoin {
             position: fixed;
             width: 30px; /* Adjust size of the image */
             height: 30px;
@@ -207,6 +246,30 @@
             message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔 This is another example of the man trying to hold us back and why we MUST persist";
             messageContainer.appendChild(message);
         }, 2000);
+// Function to create a falling RatCoin
+        function createFallingRatCoin() {
+            const ratCoin = document.createElement("img");
+            ratCoin.src = "ratcoin-webmini.png"; // Ensure the image path is correct
+            ratCoin.classList.add("falling-ratcoin");
+
+            // Set a random horizontal position and animation duration
+            ratCoin.style.left = `${Math.random() * 100}vw`;
+            ratCoin.style.animationDuration = `${3 + Math.random() * 5}s`;
+
+            // Add the element to the body
+            document.body.appendChild(ratCoin);
+
+            // Remove the element after the animation
+            ratCoin.addEventListener("animationend", () => {
+                ratCoin.remove();
+            });
+        }
+
+        // Create RatCoins at intervals
+        setInterval(createFallingRatCoin, 300); // Adjust frequency of new RatCoins
+    </script>
+
+        
     </script>
 </body>
 </html>
