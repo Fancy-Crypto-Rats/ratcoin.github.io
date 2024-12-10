@@ -60,7 +60,7 @@
         
         .content h1 {
             font-family:"UnifrakturMaguntia", cursive;
-            font-size: 6rem;
+            font-size: 5.5rem;
             margin: 0;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.6); /* Slight black drop shadow */
@@ -164,6 +164,9 @@
 
     <!-- Join Button Separate -->
     <button class="join-btn" type="button">Join RatCoin Movement</button>
+
+       <!-- Message Area (Initially Hidden) -->
+    <div id="message-container"></div>
     
     <!-- Audio Elements -->
     <audio id="glitterSound" src="glitter_sound.mp3"></audio>
@@ -176,6 +179,15 @@
             glitterSound.play().catch((err) => console.error("Page load sound error:", err));
         };
 
+  // Show message after 2 seconds
+        setTimeout(function() {
+            const messageContainer = document.getElementById('message-container');
+            const message = document.createElement('div');
+            message.classList.add('message');
+            message.innerText = "The Rats are experiencing technical issues accessing their Solana accounts 💔";
+            messageContainer.appendChild(message);
+        }, 2000);
+        
         // Play twinkle sound on hover
         function playTwinkleSound() {
             const twinkleSound = document.getElementById('twinkleSound');
